@@ -19,6 +19,7 @@ class Table extends Component {
 
     render() {
         return (
+            <div>
             <table>
                 <thead>
                 <tr>
@@ -27,9 +28,19 @@ class Table extends Component {
                 <th>Email</th>
                 <th>Tenure</th>
                 </tr>
-                
                 </thead>
+                <tbody>
+                {this.state.results.map((user) => (
+                <TableData 
+                    thumbnail={user.picture.thumbnail}
+                    username={`${user.name.first} ${user.name.last}`}
+                    email={user.email}
+                    tenure={`Here for ${user.registered.age} days`}
+                />
+                ))}
+                </tbody>
             </table>
+            </div>
         )
     }
 }
