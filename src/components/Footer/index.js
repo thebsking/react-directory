@@ -5,7 +5,7 @@ class Footer extends React.Component{
         return (
             <div>
                 <footer>
-                    <p>Powered by React | Utilizes RandomUser API</p>
+                    <p>Powered by React | Utilizes RandomUser API | Built by BK</p>
                 </footer>
             </div>
         )
