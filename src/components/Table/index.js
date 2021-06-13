@@ -2,23 +2,9 @@ import React, { Component } from 'react';
 import API from '../../utils/API';
 import TableData from '../TableData'
 
-const sortDirections = {
-    asc: {
-        fn: (a, b) => a.name.first - b.name.first
-    },
-    dsc: {
-        fn: (a, b) => b.name.first - a.name.first
-    },
-    none: {
-        fn: (a, b) => a
-    }
-}
-
-
 class Table extends Component {
     state = {
-        results: [],
-        curerentSort: 'none'
+        results: []
     };
 
     componentDidMount() {
@@ -28,19 +14,17 @@ class Table extends Component {
             })
             .catch(err => console.log(err));
     };
-    
 
-    handleInput = (event) => {
-        event.preventDefault();
-        this.searchByName();
+    sortByLength = () => {
+        const arr = this.state.results;
+        const sortedArr = arr.sort((a, b) => (a.registered.age > b.registered.age) ? 1 : -1);
+        console.log(arr, sortedArr);
+        this.setState({ results: sortedArr })
     }
 
     render() {
-        const currentSort = this.state.curerentSort;
         const results = this.state.results;
-        console.log(currentSort);
         return (
-            
             <div>
                 <table className="table">
                     <thead>
@@ -48,7 +32,7 @@ class Table extends Component {
                             <th scope="col">Photo</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Tenure</th>
+                            <th scope="col">Tenure<button onClick={this.sortByLength}>Sort</button></th>
                         </tr>
                     </thead>
                     <tbody>
