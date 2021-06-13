@@ -11,8 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.navbar > h1 {
-  
+.navbar {
+  justify-content: space-evenly;
+  align-items: center;
+  height: 8em;
+}
+.input-group {
+  width: 50%;
 }
 table{
   width: 100%;
