@@ -32,7 +32,7 @@ class Table extends Component {
                             <th scope="col">Photo</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Tenure<button onClick={this.sortByLength}>Sort</button></th>
+                            <th scope="col">Tenure<button className="btn btn-secondary" onClick={this.sortByLength}>Sort</button></th>
                         </tr>
                     </thead>
                     <tbody>
